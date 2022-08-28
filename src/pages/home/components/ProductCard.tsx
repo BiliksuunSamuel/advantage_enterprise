@@ -1,19 +1,8 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import resources from "../../../resources";
-import {
-  Box,
-  Button,
-  Chip,
-  Divider,
-  Grid,
-  IconButton,
-  Stack,
-  useTheme,
-} from "@mui/material";
-import { LocationOnOutlined, PhoneOutlined } from "@mui/icons-material";
-import { Expanded, SizedBox } from "../../../components";
-import { FlatIcons } from "../../../constants/Icons";
+import { Box, Button, Divider, Grid, Stack, useTheme } from "@mui/material";
+
 import { ImageProps } from "../views/ProductsView";
 
 interface IProps {
@@ -21,86 +10,111 @@ interface IProps {
 }
 export default function ProductCard({ info }: IProps) {
   return (
-    <Box
-      sx={(theme) => ({
-        margin: theme.spacing(1.5),
-        maxWidth: "180px",
-      })}
-    >
-      <Box
+    <Grid xs={10} sm={6} md={4} lg={3} xl={2} item>
+      <Stack
         sx={(theme) => ({
-          borderRadius: "100%",
-          overflow: "hidden",
-          background: "transparent",
-          width: "150px",
-          height: "150px",
-          alignSelf: "center",
-          border: `1px solid ${theme.palette.primary.main}`,
+          margin: theme.spacing(1.5),
+          background: theme.palette.background.paper,
+          transition: "all 0.45s ease-in-out",
+          borderRadius: theme.spacing(0.5),
+          border: `1px solid ${theme.palette.action.hover}`,
+          alignItems: "center",
+          justifyContent: "center",
+          overFlow: "hidden",
+          padding: theme.spacing(1, 0.5),
+          paddingBottom: theme.spacing(0.5),
+          "&:hover": {
+            boxShadow: theme.shadows[2],
+            borderStyle: "none",
+            cursor: "pointer",
+            transform: "scaleX(1.1)",
+          },
         })}
       >
-        <img
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          src={info.image ? info.image : resources.banner}
-          alt="banner"
-        />
-      </Box>
-      <Box>
-        <Stack direction="row" spacing={1}>
-          <Typography variant="body1">DOLLAR GROCERIES.</Typography>
-        </Stack>
-        {/* <Divider /> */}
-        <Stack>
-          <Typography
-            sx={(theme) => ({
-              fontSize: theme.spacing(1.5),
-            })}
-            variant="body2"
-          >
-            Adom Baptist Street, USA
-          </Typography>
-          <Typography
-            sx={(theme) => ({
-              fontSize: theme.spacing(1.5),
-            })}
-            variant="body2"
-          >
-            +1 (720) 313-2654
-          </Typography>
-          <Divider />
-          <Typography
-            variant="body2"
-            sx={(theme) => ({
-              fontSize: theme.spacing(1.4),
-            })}
-          >
-            Dollar Groceries Provides Money Gram, African Grocery Store, Ethnic
-            Market,Fish,Poultry,Beef,Pork,Canned Goods,Beverages And Convenience
-            Store to the Aurora, CO Area
-          </Typography>
-        </Stack>
-        <Button
+        <Box
           sx={(theme) => ({
-            textTransform: "none",
-            height: "20px",
-            margin: theme.spacing(0.5, 0),
+            overflow: "hidden",
+            background: "transparent",
+            height: "150px",
+            alignSelf: "center",
+            borderStyle: "none",
+            width: "100%",
           })}
-          variant="contained"
-          size="small"
-          color="primary"
-          fullWidth
         >
-          <a
-            href={info.link}
-            target="_blank"
-            style={{
-              textDecoration: "none",
-              color: useTheme().palette.common.white,
-            }}
+          <img
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            src={info.image ? info.image : resources.banner}
+            alt="banner"
+          />
+        </Box>
+        <Stack
+          sx={(theme) => ({
+            padding: theme.spacing(1),
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            overflow: "hidden",
+            paddingBottom: theme.spacing(0.5),
+          })}
+        >
+          <Stack direction="row" spacing={1}>
+            <Typography
+              sx={(theme) => ({
+                textTransform: "uppercase",
+                textAlign: "center",
+              })}
+              variant="body1"
+            >
+              {info.title}
+            </Typography>
+          </Stack>
+          <Stack
+            sx={(theme) => ({
+              overflow: "hidden",
+              padding: theme.spacing(0, 1),
+              alignItems: "center",
+              justifyContent: "center",
+            })}
           >
-            Visit
-          </a>
-        </Button>
-      </Box>
-    </Box>
+            <Typography
+              variant="body2"
+              sx={(theme) => ({
+                fontSize: theme.spacing(1.4),
+                textAlign: "justify",
+                padding: theme.spacing(0, 1),
+              })}
+              textOverflow="wrap"
+            >
+              {info.about}
+            </Typography>
+          </Stack>
+
+          <Button
+            sx={(theme) => ({
+              textTransform: "none",
+              height: "20px",
+              margin: theme.spacing(0.5, 0),
+              color: theme.palette.primary.dark,
+            })}
+            variant="text"
+            size="small"
+            color="primary"
+            fullWidth
+          >
+            <a
+              href={info.link}
+              target="_blank"
+              style={{
+                textDecoration: "none",
+                color: useTheme().palette.primary.dark,
+              }}
+              rel="noreferrer"
+            >
+              Learn More
+            </a>
+          </Button>
+        </Stack>
+      </Stack>
+    </Grid>
   );
 }

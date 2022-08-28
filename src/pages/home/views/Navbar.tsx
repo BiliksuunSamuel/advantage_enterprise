@@ -48,9 +48,7 @@ export default function Navbar() {
           >
             <Stack
               sx={(theme) => ({
-                [theme.breakpoints.down("sm")]: {
-                  display: "none",
-                },
+                [theme.breakpoints.down("sm")]: {},
               })}
             >
               <Box
@@ -60,10 +58,7 @@ export default function Navbar() {
                   background: "transparent",
                 })}
               >
-                <img
-                  src="https://advn.app/wp-content/uploads/2021/11/logo1.png"
-                  alt="app-logo"
-                />
+                <img src={resources.logo} alt="app-logo" />
               </Box>
             </Stack>
             <Stack
@@ -79,19 +74,6 @@ export default function Navbar() {
               })}
               spacing={1}
             >
-              <Chip
-                avatar={
-                  <FlatIcons.FcHome style={{ background: "transparent" }} />
-                }
-                sx={(theme) => ({
-                  borderRadius: theme.spacing(0.5),
-                  padding: theme.spacing(0.5),
-                })}
-                color="primary"
-                label={<Typography variant="body2">Home</Typography>}
-                onClick={() => {}}
-              />
-              <SizedBox w={1} />
               <NavLink title="About" />
               <NavLink title="Services" />
               <NavLink title="Contact" />

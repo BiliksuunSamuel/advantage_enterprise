@@ -33,9 +33,16 @@ export default function ProductsView() {
           alignItems="center"
           justifyContent="center"
         >
-          {links.map((info, index) => (
-            <ProductCard info={info} key={Math.random().toString()} />
-          ))}
+          <Grid
+            container
+            sx={(theme) => ({
+              justifyContent: "center",
+            })}
+          >
+            {links.map((info, index) => (
+              <ProductCard info={info} key={Math.random().toString()} />
+            ))}
+          </Grid>
         </Stack>
       </Container>
     </Box>
@@ -45,27 +52,41 @@ export default function ProductsView() {
 export interface ImageProps {
   image?: string;
   link?: string;
+  about?: string;
+  title?: string;
 }
 
 const links: ImageProps[] = [
   {
     link: "http://www.mylooklocal.com/",
+    title: "Advertise in Spectrum Monthly",
+    about:
+      "Spectrum Monthly offers a wide range of ad sizes and advertising options to fit your budget and impact needs",
     image:
-      "https://gh.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/90/023513/1.jpg?9323",
+      "https://spectrummonthly.com/wp-content/uploads/2022/05/spectrum-monthly-ad-coupons-770x352-1-768x351.jpg",
   },
   {
     link: "https://www.townmoneysaver.com/",
+    title: "Advertise on the Spectrum Cover",
+    about:
+      "Reserve now and guarantee your ad will be seen on Spectrum Monthly covers and highlight options",
     image:
-      "https://gh.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/44/523514/1.jpg?6114",
+      "https://spectrummonthly.com/wp-content/uploads/2022/05/spectrum-monthly-cover-770x352-1-768x351.jpg",
   },
   {
     link: "https://www.moneypages.com/",
+    title: "Deliver Your Printed Flyers & Inserts",
+    about:
+      "Take advantage of direct-to-home delivery with rates lower than an individual direct mailing by delivering with Spectrum",
     image:
-      "https://gh.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/04/345771/1.jpg?9387",
+      "https://spectrummonthly.com/wp-content/uploads/2022/05/inserts-770x352-2-768x351.jpg",
   },
   {
     link: "https://www.moneypages.com/",
+    title: "DIGITAL MARKETING",
+    about:
+      "Consumers spend an average of 24 hours per week online, especially their mobile device. Money Pages’s digital marketing strategists deliver display advertising and search engine marketing campaigns to turbo charge your direct mail marketing",
     image:
-      "https://gh.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/19/351104/1.jpg?6635",
+      "https://www.moneypages.com/wp-content/uploads/2019/04/1556554068___magazine_whole_revised.jpg",
   },
 ];

@@ -1,15 +1,18 @@
 import { Box, Fade, Slide, Stack, Typography, Zoom } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { SizedBox } from "../../../components";
 import { FooterView } from "../../../view";
+import { MobileMenu } from "../components";
 import {
   AboutSectionView,
   HomeBannerView,
   Navbar,
   ProductsView,
+  SubMenuView,
 } from "../views";
 
 export default function HomePage() {
+  const [mobileMenu, setMobileMenu] = useState<HTMLElement | null>(null);
   return (
     <Box
       sx={(theme) => ({
@@ -20,13 +23,20 @@ export default function HomePage() {
       })}
     >
       <Navbar />
+
+      <MobileMenu
+        anchorEl={mobileMenu}
+        handleClose={() => setMobileMenu(null)}
+      />
+
       <Box
         sx={(theme) => ({
           marginTop: "50px",
         })}
       >
+        <SubMenuView handleMobileMenu={(el) => setMobileMenu(el)} />
         <HomeBannerView />
-        <AboutSectionView />
+
         <Box
           id="services"
           sx={(theme) => ({
@@ -44,6 +54,7 @@ export default function HomePage() {
         <Slide direction="right" timeout={2500}>
           <ProductsView />
         </Slide>
+        <AboutSectionView />
         <FooterView />
       </Box>
     </Box>

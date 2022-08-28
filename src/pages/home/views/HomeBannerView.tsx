@@ -49,9 +49,7 @@ export default function HomeBannerView() {
               flex={1}
             >
               <Container>
-                <Typography variant="h4">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing vel?
-                </Typography>
+                <Typography variant="h4">LOCAL AD-VANTAGE</Typography>
                 <Stack paddingY={useTheme().spacing(1)}>
                   <Typography
                     variant="body2"
@@ -59,13 +57,12 @@ export default function HomeBannerView() {
                       fontSize: theme.spacing(1.5),
                     })}
                   >
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Quos porro consectetur non ratione expedita commodi
-                    provident itaque dolores optio quis pariatur aspernatur a
-                    impedit quam quaerat quod fuga ipsa magnam enim atque autem
-                    excepturi quo, similique maiores? Architecto, repudiandae
-                    esse nam reiciendis aliquid, sed quasi debitis consequuntur
-                    placeat, fugit quas?
+                    We help local business owners who want to get the most value
+                    and response rate for their advertising dollar. Geo-target
+                    specific markets with direct mail options tailored to your
+                    needs. Our print experts can help you target and design an
+                    effective piece that grabs your audience’s attention - and
+                    lands directly in their mailbox.
                   </Typography>
                 </Stack>
                 <Divider />
@@ -74,34 +71,16 @@ export default function HomeBannerView() {
                   paddingY={useTheme().spacing(2)}
                   direction="row"
                   sx={(theme) => ({
-                    justifyContent: "center",
+                    justifyContent: "flex-start",
                   })}
-                  justifyContent="center"
+                  justifyContent="flex-start"
                   alignItems="center"
                 >
                   <Button
                     sx={(theme) => ({
                       height: "25px",
                       textTransform: "none",
-                    })}
-                    color="primary"
-                    variant="contained"
-                    size="small"
-                  >
-                    <a
-                      href="https://kentengh.com/"
-                      style={{
-                        textDecoration: "none",
-                        color: useTheme().palette.common.white,
-                      }}
-                    >
-                      Trade With Us
-                    </a>
-                  </Button>
-                  <Button
-                    sx={(theme) => ({
-                      height: "25px",
-                      textTransform: "none",
+                      width: "200px",
                     })}
                     color="primary"
                     variant="contained"
